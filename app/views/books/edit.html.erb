@@ -1,0 +1,12 @@
+<h1>Editing Book</h1>
+<%= form_with model:@book, local:true do |f| %>
+  <td><label for="inputName">title</label></br>
+  <%= f.text_field :title, autofocus: true, id:"title", placeholder:"title"%></td></br>
+
+   <td><label for="inputName">opinion</label></br>
+  <%= f.text_field :body, autofocus: true, id:"opinion"%></td></br>
+  <%= f.submit "Update book" %>
+
+<% end %>
+<%= link_to 'Show',book_path(@book.id) %>
+<%= link_to 'Back',books_path %>
