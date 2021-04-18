@@ -1,0 +1,16 @@
+<h1>User info</h1>
+<%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <h4>name</h4>
+  <%= user.name %>
+  <h4>introduction</h4>
+  <%= user.introduction %>
+  <%= link_to "edit",edit_user_path(user) %>
+
+<h1>New　Book</h1>
+<%= form_with model: book, local:true do |f| %>
+  <h2>title</h2>
+  <%= f.text_field :title %>
+  <h4>opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+  <% end %>
