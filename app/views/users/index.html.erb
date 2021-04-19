@@ -1,23 +1,34 @@
-<h1>Users</h1>
- <table>
-  <tr>
-   <td>image</td>
-   <td>name</td>
-  </tr>
- </table>
- <tbody>
-   <tr>
-     <td>
-      <% @users.each do |user| %>
-      <%= attachment_image_tag @user, :profile_image, :fill,40,40, fallback: "no_image.jpeg" %>
-      <%= user.name %>
-      <%= link_to 'Show',user_path(user.id) %>
-      <% end %>
-      <td>
-        <td>
-     </td>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2Ver2</title>
+  </head>
+<div class='container px-5 px-sm-0'>
+ <div class='row'>
+<%= render 'books/list', book: @book ,user: @user %>
 
-
-
+<div class='col-md-8 offset-md-1'>
+ <h2>Users</h2>
+  <table class='table'>
+   <thead>
+    <tr>
+     <td>image</td>
+     <td>name</td>
+     <th colspan="3"></th>
     </tr>
-  </tbody>
+   </thead>
+ <tbody>
+  <% @users.each do |user| %>
+   <tr>
+    <td><%= attachment_image_tag @user, :profile_image, :fill,40,40, fallback: "no_image.jpeg" %></td>
+    <td><%= user.name %></td>
+    <td><%= link_to 'Show',user_path(user.id) %>
+    </td>
+   </tr>
+  <% end %>
+
+ </tbody>
+  </table>
+</div>
+</div>
+</div>

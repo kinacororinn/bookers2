@@ -1,22 +1,33 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>User info</h1>
+ <form enctype="multipart/form-data" action="/users/35235" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="FnfvME1yh5BbWCU2kefmVlqldN1O+zdyMdZCHnljO8ZUx64bbvdnXnqFLsXoHtSAK6LilYKoRjudDOrNN13/XA==" />
+
 <% if @user.errors.any? %>
   <%= @user.errors.count %>error prohibited this obj from being saved:
   <% @user.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
 <% end %>
+
+<div class="form-group">
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</label></br>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></br>
+</div>
 
-
-  <%#= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-  <label for="inputImage">Image</label></br>
+<div class="form-group"> 
    <%= f.attachment_field :profile_image, placeholder: "Image" %></br>
-
+</div>   
+<div class="form-group"> 
    <label for="inputName">introduction</label></br>
+   <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction"%></br>
+</div>
 
-  <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction"%></br>
-
-<%= f.submit "Update User" %>
+<%= f.submit "Update User",class:"btn btn-secondary" %>
 <% end %>
+</form>
+</div>
+</div>
+</div>
