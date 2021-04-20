@@ -10,16 +10,20 @@
 <% end %>
 
 <%= form_with model:@book, local:true do |f| %>
-  <td><label for="inputName">title</label></br>
-  <%= f.text_field :title, autofocus: true, id:"title", placeholder:"title"%></td></br>
-
+  <div class="form-group">
+   <td><label for="inputName">title</label></br>
+   <%= f.text_field :title, autofocus: true, id:"title", placeholder:"title"%></td></br>
+  </div>
+  
+  <div class="form-group">
    <td><label for="inputName">opinion</label></br>
-  <%= f.text_field :body, autofocus: true, id:"opinion"%></td></br>
-  <%= f.submit "Update Book" %>
+   <%= f.text_field :body, autofocus: true, id:"opinion"%></td></br>
+  </div> 
+   <%= f.submit "Update Book" %>
 
 <% end %>
-<%= link_to 'Show',book_path(@book.id) %>
-<%= link_to 'Back',books_path %>
+ <%= link_to 'Show',book_path(@book.id) %>
+ <%= link_to 'Back',books_path %>
 
 </div>
 </div>
